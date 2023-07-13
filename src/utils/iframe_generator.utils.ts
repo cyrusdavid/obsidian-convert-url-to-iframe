@@ -1,4 +1,4 @@
-import { hasProvider, extract, VideoTypeData} from 'oembed-parser'
+import { hasProvider, extract, VideoTypeData} from '@extractus/oembed-extractor'
 import * as DOMPurify from 'dompurify'
 
 
@@ -20,7 +20,7 @@ export const getIframeGeneratorFromSanitize = (sanitize: typeof DOMPurify.saniti
         if(oembedData && oembedData.type !== 'rich' && oembedData.type !=='video') {
             throw new Error('Not a rich or video type:' + oembedData )
         }
-        
+
         // Both Rich and Video types have an html property
         const html = (oembedData as VideoTypeData)?.html;
 
